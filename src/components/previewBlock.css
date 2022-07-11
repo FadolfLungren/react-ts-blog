@@ -1,0 +1,11 @@
+.SiPackBlock{
+    flex-grow: 1;
+    flex-shrink: 2;
+    background-color: teal;
+    margin: 0 10px 10px 10px;
+    transition: flex-grow 1s ease;
+}
+.Highlited{
+    background-color: red !important;
+    flex-grow: 3;
+}
