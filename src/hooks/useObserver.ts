@@ -1,11 +1,14 @@
 import React, {useCallback, useEffect, useRef, useState} from "react";
 
 
-const useObserver = () =>{
-    const Ref = useRef(null)//:React.LegacyRef<HTMLDivElement>
+const useObserver = ():[
+    isVisible:boolean,
+    Ref:React.LegacyRef<HTMLDivElement>
+] => {
+    const Ref:React.LegacyRef<HTMLDivElement> = useRef(null)
     const [isVisible ,setIsVisible] = useState(false)
 
-    const onIntersection = useCallback((entries)=>{//:IntersectionObserverEntry[]
+    const onIntersection = useCallback((entries:IntersectionObserverEntry[])=>{
         const [entry] = entries
         console.log(entry.isIntersecting)
         setIsVisible(entry.isIntersecting)

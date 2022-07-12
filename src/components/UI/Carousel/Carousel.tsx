@@ -12,7 +12,7 @@ const Carousel:FC<ISlider> = ({children}) => {
 
     useInterval(()=>{
         CyclePackages()
-    },1000)
+    },10000)
 
 
 
