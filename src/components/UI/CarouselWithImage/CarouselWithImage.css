@@ -1,0 +1,8 @@
+.Carousel{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-end: 5;
+    display: flex;
+    flex-basis: 120px;
+    justify-content: center;
+}

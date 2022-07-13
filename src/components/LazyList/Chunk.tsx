@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
-import {ISiPackage} from "../../models/PackageModel";
+import {SiPackage} from "../../models/PackageModel";
 import PreviewBlock from "../previewBlock";
 
 interface IChunk{
-    SiPacks:ISiPackage[],
+    SiPacks:SiPackage[],
     pos:number
 }
 const Chunk:FC<IChunk> = ({SiPacks, pos}) => {

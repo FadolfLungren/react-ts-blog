@@ -3,7 +3,8 @@
     flex-shrink: 2;
     background-color: teal;
     margin: 0 10px 10px 10px;
-    transition: flex-grow 1s ease;
+    border-radius: 5px;
+    flex-basis: 100px;
 }
 .Highlited{
     background-color: red !important;

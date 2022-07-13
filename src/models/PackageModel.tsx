@@ -1,4 +1,4 @@
-export interface ISiPackage{
+export interface SiPackage {
     id:number,
     title:string,
     file:string,

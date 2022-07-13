@@ -1,9 +1,10 @@
 import React, {FC} from 'react';
-import {ISiPackage} from "../models/PackageModel";
+import {SiPackage} from "../models/PackageModel";
 import "./previewBlock.css"
+import {shortenString} from "../utils/utils";
 
 interface IPackageBlock{
-    SiPackage:ISiPackage
+    SiPackage:SiPackage
     Highlight?:React.MouseEventHandler<HTMLDivElement>
     StopHighlighting?:React.MouseEventHandler<HTMLDivElement>
     isHighlited?:boolean
@@ -16,7 +17,7 @@ const PreviewBlock:FC<IPackageBlock> = ({SiPackage, Highlight, StopHighlighting,
              className={isHighlited ? "SiPackBlock Highlited " : "SiPackBlock"}
         >
 
-            {SiPackage.title + "+" + SiPackage.id}
+            {shortenString(SiPackage.title,40) + "+" + SiPackage.id}
         </div>
     );
 };
