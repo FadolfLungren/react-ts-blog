@@ -1,0 +1,21 @@
+.blockImage{
+    width:100%;
+    height: auto;
+}
+
+.block{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.DiscriptionBlock{
+    flex-grow: 1;
+    flex-shrink: 2;
+    background-color: teal;
+    border-bottom: solid ;
+    border-radius: 0px 0px 20px 20px;
+    flex-basis: 100px;
+    height: fit-content;
+}

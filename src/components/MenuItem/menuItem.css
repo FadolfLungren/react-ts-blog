@@ -1,0 +1,13 @@
+.MenuItem{
+    border: 2px solid red;
+    border-radius: 5px;
+    list-style-type:none;
+    text-align: center;
+    width: 60%;
+    height: 40px;
+    margin-bottom: 5px;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none;
+}

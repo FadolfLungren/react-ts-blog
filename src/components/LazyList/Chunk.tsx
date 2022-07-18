@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
 import {SiPackage} from "../../models/PackageModel";
-import PreviewBlock from "../previewBlock";
+import PreviewBlockWithImage from "../PreviewBlockWithImage/previewBlockWithImage";
+
 
 interface IChunk{
     SiPacks:SiPackage[],
@@ -11,7 +12,7 @@ const Chunk:FC<IChunk> = ({SiPacks, pos}) => {
     return (
         <div className={"chunk"} >
             {SiPacks.map((SiPack)=>
-                <PreviewBlock SiPackage={SiPack}/>
+                <PreviewBlockWithImage SiPackage={SiPack}/>
             )}
         </div>
     );
