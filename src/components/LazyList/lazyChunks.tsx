@@ -28,7 +28,7 @@ const LazyChunks:FC<ILazyChunks> = ({}) => {
             for(let i =0; i<chunksAmount; i++){
                 const displayedPacks = SiPackages.slice(16*i, 16*i+16)
                 if(displayedPacks.length){
-                    Chunks.push(<Chunk SiPacks={displayedPacks} pos={i}/>)
+                    Chunks.push(<Chunk key={i} SiPacks={displayedPacks} pos={i}/>)
                 }
             }
 

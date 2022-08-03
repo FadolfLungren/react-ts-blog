@@ -1,21 +1,21 @@
 import React, {FC, MouseEvent, useEffect, useState} from 'react';
 import useInterval from "../../../hooks/useInterval";
-import './Carousel.css'
+import styles from './Carousel.module.scss'
 import {useCarousel} from "../../../hooks/useCarousel";
 
 interface ICarousel{
     children?:React.ReactNode | React.ReactNode[]
-    className:string
+
 }
 
 
-const Carousel:FC<ICarousel> = ({children, className}) => {
+const Carousel:FC<ICarousel> = ({children}) => {
 
     const [selectedPackage, HighlightElem, StopHighlightingElem] = useCarousel(React.Children.count(children))
 
     return (
 
-        <div className={className}>
+        <div className={styles.Carousel}>
             {React.Children.map(children,(child,id)=>{
                 // @ts-ignore
                 return React.cloneElement(child,{

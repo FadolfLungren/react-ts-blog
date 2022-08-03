@@ -1,33 +1,63 @@
 import React, {FC, useEffect, useState} from 'react';
 import {useAppDispatch, useAppSelector} from "../../strore/redux";
-import {Auth} from "../../strore/actionCreators";
+import {AuthUser} from "../../strore/actionCreators";
+import styles from "./loginPage.module.scss"
+import 'swiper/css';
+import 'swiper/css/bundle'
+import {useNavigate} from "react-router-dom";
+
+
 
 const LoginPage:FC = () => {
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
+    const [select, setSelect] = useState('dd')
+    const [text, setText] = useState('ergerg')
+    const [inp, setInp] = useState('ergerg')
 
-    const {pending, error, User}  = useAppSelector(state => state.AuthReducer)
     const dispatch = useAppDispatch()
+    const nav = useNavigate()
 
-    useEffect(()=>{
-
-    }, [])
-
-
-    function v1(e:any){
+    function submitForm(e:any){
         e.preventDefault()
-        dispatch( Auth(login,password) )
-        console.log(User)
+        dispatch( AuthUser(login,password) )
+            .then((user)=>{
+                if(user){
+                    nav('/')
+                }else{
+                    nav('/login')
+                }
+            })
+    }
+
+
+    function txt(e:React.ChangeEvent<HTMLTextAreaElement>) {
+        setText(e.target.value)
+        console.log(text)
     }
     return (
-        <div className={"loginPage"}>
-            <form className={"loginForm"}>
+        <>
+            <div className={styles.loginPage}>
                 <h1>Login</h1>
-                <input value={login} onInput={(e) => setLogin(e.currentTarget.value)}/>
-                <input value={password} onInput={(e) => setPassword(e.currentTarget.value)}/>
-                <button onClick={(e)=>v1(e)}>Submit</button>
-            </form>
-        </div>
+                <form className={styles.loginForm}>
+                    <input
+                        value={login}
+                        onInput={(e) => setLogin(e.currentTarget.value)}
+                        placeholder={"login"}
+                        type={"text"}
+                    />
+                    <input
+                        value={password}
+                        onInput={(e) => setPassword(e.currentTarget.value)}
+                        type = "password"
+                        placeholder={"password"}
+                    />
+                    <button onClick={(e)=>submitForm(e)} type={"submit"}>Submit</button>
+                </form>
+                <a href={"/"}>register</a>
+            </div>
+
+        </>
 
     );
 };

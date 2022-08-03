@@ -26,6 +26,9 @@ export const PacksSlice = createSlice({
         SiPacksLoadingError(state, action: PayloadAction<string>){
             state.isLoading = false
             state.error = action.payload
+        },
+        DeleteSiPack(state, action:PayloadAction<number>){
+           state.SiPackages = state.SiPackages.filter((el)=> el.id!==action.payload && el)
         }
     }
 })

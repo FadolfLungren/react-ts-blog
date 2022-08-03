@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
-import {SiPackage} from "../../models/PackageModel";
-
+import {SiPackage} from "../../../models/PackageModel";
+import styles from "../articlePage.module.scss"
 
 interface IPageBody {
     Package:SiPackage
@@ -8,9 +8,7 @@ interface IPageBody {
 
 const PageBody:FC<IPageBody> = ({Package}) => {
     return (
-        <div className={"articlePage__body"}>
-            <img src={Package.img_src} className={"topImage"}/>
-            <h1>{ Package.title }</h1>
+        <div className={styles.articlePageBody}>
             <p>
                 {Package.text}
             </p>

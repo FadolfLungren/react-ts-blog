@@ -1,8 +1,14 @@
+@import "src/variables";
+
+
 .MenuItem{
-    border: 2px solid red;
+    border: 2px solid $Color3;
+    background-color: $Color4;
     border-radius: 5px;
-    list-style-type:none;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
     width: 60%;
     height: 40px;
     margin-bottom: 5px;
@@ -10,4 +16,7 @@
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none;
+}
+.MenuItem:hover{
+    transform: scale(1.1,1.1);
 }

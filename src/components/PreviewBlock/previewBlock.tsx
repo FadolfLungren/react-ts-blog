@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {SiPackage} from "../../models/PackageModel";
-import "./previewBlock.css"
+import styles from "./previewBlock.module.scss"
 import {shortenString} from "../../utils/utils";
 
 interface IPackageBlock{
@@ -14,7 +14,7 @@ const PreviewBlock:FC<IPackageBlock> = ({SiPackage, Highlight, StopHighlighting,
     return (
         <div onMouseEnter={Highlight}
              onMouseLeave={StopHighlighting}
-             className={isHighlited ? "SiPackBlock Highlited " : "SiPackBlock"}
+             className={isHighlited ? `${styles.SiPackBlock} ${styles.Highlited}` : styles.SiPackBlock}
         >
             {shortenString(SiPackage.title,40) + "+" + SiPackage.id}
         </div>

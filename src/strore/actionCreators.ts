@@ -16,7 +16,30 @@ export const fetchSiPacks = () => async (dispatch:AppDispatch) => {
     }
 }
 
-export const Auth = (username:string, password:string) => async (dispatch:AppDispatch) => {
+export const deleteSiPack = (id:number) => async (dispatch:AppDispatch) => {
+    try {
+        const response = await $api.delete(`/SIPacks/${id}`)
+        dispatch(PacksSlice.actions.DeleteSiPack(id))
+        console.log(response)
+    }catch (e:any) {
+        dispatch(PacksSlice.actions.SiPacksLoadingError(e.message))
+    }
+}
+
+export const AuthUser = (username:string, password:string) => async (dispatch:AppDispatch) => {
+    try {
+        dispatch(AuthSlice.actions.loginPending())
+        const response = await $api.post<User>("/login", {username, password})
+        dispatch(AuthSlice.actions.loginSuccess(response.data))
+        return response.data
+    }catch (e:any) {
+        dispatch(AuthSlice.actions.loginError(e.message))
+        dispatch(AuthSlice.actions.logout())
+    }
+}
+
+
+export const RegisterUser = (username:string, password:string) => async (dispatch:AppDispatch) => {
     try {
         dispatch(AuthSlice.actions.loginPending())
         const response = await $api.post<User>("/login", {username, password})

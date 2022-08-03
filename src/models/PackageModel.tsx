@@ -3,4 +3,5 @@ export interface SiPackage {
     title:string,
     file:string,
     img_src:string
+    text:string
 }

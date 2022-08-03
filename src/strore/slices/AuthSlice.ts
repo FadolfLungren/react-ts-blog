@@ -4,13 +4,15 @@ import {SliceActions} from "@reduxjs/toolkit/dist/query/core/buildSlice";
 
 
 interface AuthState{
-    User:User | {}
+    User:User | undefined
+    isAuth:boolean
     pending:boolean
     error:string
 }
 
 const initialState = {
     User:{},
+    isAuth:false,
     pending:false,
     error:''
 } as AuthState
@@ -23,16 +25,19 @@ export const AuthSlice = createSlice({
             state.pending = true
         },
         loginSuccess(state, action:PayloadAction<User>){
+            state.isAuth = true
             state.pending = false
             state.User = action.payload
             state.error = ''
         },
         loginError(state, action:PayloadAction<string>){
+            state.isAuth = false
             state.pending = false
             state.error = action.payload
         },
         logout(state){
-            state.User = {}
+            state.isAuth = false
+            state.User = undefined
             state.pending = false
             state.error = ''
         }

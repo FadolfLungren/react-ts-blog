@@ -3,33 +3,30 @@ import CarouselWithImage from "../../../components/UI/CarouselWithImage/Carousel
 import PreviewBlock from "../../../components/PreviewBlock/previewBlock";
 import {useAppSelector} from "../../../strore/redux";
 import MenuItem from "../../../components/MenuItem/MenuItem";
+import Menu from "../../../components/Menu/Menu";
 
 const Header = () => {
 
-    const {SiPackages, isLoading} = useAppSelector(state => state.PacksReducer)
+    const {SiPackages, isLoading, error} = useAppSelector(state => state.PacksReducer)
 
     function getImageFromSiPack (child:React.ReactElement):string{
         return child['props']['SiPackage']['img_src']
     }
 
     return (
-        <>
-            <ul className="menu">
-                <MenuItem url={"/login3"}>Authors</MenuItem>
-                <MenuItem url={"/login3"}>Favorite</MenuItem>
-                <MenuItem url={"/login"}>Login</MenuItem>
-                <MenuItem url={"/login3"}>Publish</MenuItem>
-            </ul>
-            {!isLoading ?
-                <CarouselWithImage className={"Carousel"} getImageFromChild={getImageFromSiPack}>
-                    {SiPackages.slice(0,7).map((SiPackage)=>
+        <div className={'header'}>
+            <Menu/>
+            {isLoading && <div>Loading</div>}
+            {error && <div>Error</div>}
+            {!error && !isLoading &&
+                <CarouselWithImage getImageFromChild={getImageFromSiPack}>
+                    {SiPackages.slice(0,4).map((SiPackage)=>
                         <PreviewBlock SiPackage={SiPackage}/>)}
                 </CarouselWithImage>
-            :
-            <div>Loading</div>
             }
 
-        </>
+
+        </div>
     );
 };
 

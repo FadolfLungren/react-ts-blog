@@ -15,6 +15,7 @@ server.use(async (req, res, next) => {
 });
 
 
+
 server.post('/login', (req, res) => {
     try {
         const { username, password } = req.body;
@@ -49,5 +50,5 @@ server.use((req, res, next) => {
 server.use(router);
 
 server.listen(8000, () => {
-    console.log('server is running on 8000 port');
+    console.log( 'server is running on 8000 port' );
 });

@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import "./menuItem.css"
+import styles from "./menuItem.module.scss"
 import {useNavigate} from "react-router-dom";
 
 interface IMenuItem{
@@ -11,7 +11,7 @@ const MenuItem:FC<IMenuItem> = ({children, url}) => {
     const nav = useNavigate()
 
     return (
-        <li className={"MenuItem"} onClick={()=>nav(url)}>
+        <li className={styles.MenuItem} onClick={()=>nav(url)}>
             {children}
         </li>
     );

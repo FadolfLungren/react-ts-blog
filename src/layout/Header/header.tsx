@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
-import Menu from "../components/Menu/Menu";
+import Menu from "../../components/Menu/Menu";
+import styles from "./header.module.scss"
 
 interface IHeader{
     children:React.ReactNode | React.ReactNode[]
@@ -8,9 +9,9 @@ interface IHeader{
 const Header:FC<IHeader> = ({children}) => {
     return (
         <div>
-            <div className={"header"}>
+            <div className={styles.header}>
                 <Menu/>
-                <div className={"header__content"}>
+                <div className={styles.headerContent}>
                     {children}
                 </div>
             </div>
