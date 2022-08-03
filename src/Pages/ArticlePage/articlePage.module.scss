@@ -1,0 +1,20 @@
+
+.articlePage__body{
+    padding: 0 140px;
+    margin-top: 30px;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 5;
+}
+.topImage{
+    width: 100%;
+    max-height: 500px;
+}
+
+.header__content{
+    grid-row-start: 1;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 5;
+}
